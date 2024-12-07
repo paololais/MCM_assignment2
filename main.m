@@ -25,6 +25,13 @@ bTe = geometricModel.getTransformWrtBase(length(jointType));
 disp('bTe')
 disp(bTe)
 
+% Compute the transformation of <3> w.r.t. <5>
+bT3 = geometricModel.getTransformWrtBase(3);
+bT5 = geometricModel.getTransformWrtBase(5);
+var_5T3 = bT3 * inv(bT5);
+disp('5T3')
+disp(var_5T3)
+
 %% Given the previous joint configuration compute the Jacobian matrix of the manipulator
 km = kinematicModel(geometricModel);
 km.updateJacobian()
